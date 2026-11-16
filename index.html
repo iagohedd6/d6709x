@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D6750 OS</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#08090d;
+ color:white;
+ font-family:Arial,sans-serif;
+ padding:45px 6%;
+}
+header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:65px;
+}
+.logo{font-size:25px;font-weight:bold;letter-spacing:4px}
+#clock{color:#aaa;font-size:18px}
+.hero{margin-bottom:55px}
+.hero small{color:#aaa;letter-spacing:5px}
+h1{font-size:65px;letter-spacing:-3px;margin:15px 0}
+.hero p{color:#aaa;font-size:19px}
+h2{font-size:23px;margin-bottom:20px}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+.tile{
+ background:linear-gradient(135deg,#252b3b,#11141d);
+ border:1px solid #303747;
+ border-radius:18px;
+ min-height:170px;
+ padding:25px;
+ color:white;
+ text-align:left;
+ cursor:pointer;
+ transition:.2s;
+}
+.tile:focus,.tile:hover{
+ outline:2px solid white;
+ transform:scale(1.03);
+}
+.tile span{font-size:35px;display:block;margin-bottom:22px}
+.tile strong{font-size:21px}
+.tile p{color:#aaa;font-size:14px}
+footer{margin-top:65px;color:#666;font-size:12px}
+@media(max-width:700px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ h1{font-size:42px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">D6750 OS</div>
+ <div id="clock">--:--</div>
+</header>
+
+<section class="hero">
+ <small>YOUR PERSONAL ENTERTAINMENT SYSTEM</small>
+ <h1>Entertainment.<br>Reimagined.</h1>
+ <p>Welcome to your new television experience.</p>
+</section>
+
+<h2>Explore</h2>
+<div class="grid">
+ <button class="tile" onclick="go('https://www.youtube.com')">
+  <span>▶</span><strong>YouTube</strong>
+  <p>Videos and entertainment</p>
+ </button>
+ <button class="tile" onclick="go('https://www.bbc.co.uk/iplayer')">
+  <span>📺</span><strong>BBC iPlayer</strong>
+  <p>BBC programmes</p>
+ </button>
+ <button class="tile" onclick="go('https://www.netflix.com')">
+  <span>🎬</span><strong>Netflix</strong>
+  <p>Films and series</p>
+ </button>
+ <button class="tile" onclick="go('https://www.primevideo.com')">
+  <span>🎥</span><strong>Prime Video</strong>
+  <p>Watch entertainment</p>
+ </button>
+ <button class="tile" onclick="info('Sports','Sports centre coming soon')">
+  <span>⚽</span><strong>Sports</strong>
+  <p>Football and fixtures</p>
+ </button>
+ <button class="tile" onclick="info('Settings','D6750 OS version 1.0')">
+  <span>⚙️</span><strong>Settings</strong>
+  <p>System information</p>
+ </button>
+</div>
+
+<footer>
+ SAMSUNG UE37D6750 · D6750 OS · VERSION 1.0
+</footer>
+
+<script>
+function clock(){
+ document.getElementById('clock').textContent=
+ new Date().toLocaleTimeString([],{
+ hour:'2-digit',minute:'2-digit'
+ });
+}
+function go(url){window.open(url,'_blank')}
+function info(title,message){alert(title+'\n\n'+message)}
+clock();
+setInterval(clock,1000);
+</script>
+</body>
+</html>
+
